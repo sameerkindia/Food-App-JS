@@ -1,0 +1,46 @@
+// Container
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.main-container {
+  min-height: 80vh;
+}
+
+// Header
+
+.header {
+  background-color: var(--color-accent-1);
+  padding: 1.6rem;
+}
+
+.content {
+  margin: 5rem 0;
+  width: 100%;
+  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  @media (max-width: 400px) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+footer {
+  font-size: 1.6rem;
+  padding: 2rem;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+}

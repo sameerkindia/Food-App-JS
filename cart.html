@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Food App</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <nav class="header__nav">
+          <a href="index.html" class="header__nav--logo header__nav--link"
+            ><i class="fa-solid fa-pizza-slice"></i><span>Only pizza</span></a
+          >
+          <a href="#" class="header__nav--link header__nav--link-cart"
+            ><span class="header__logo hidden"></span
+            ><i class="fa-solid fa-cart-shopping"></i
+          ></a>
+        </nav>
+      </div>
+    </header>
+    <main class="container main-container">
+      <div class="cart">
+        <h2 class="cart__top">Shopping Cart :</h2>
+
+        <div>
+          <div class="cart__empty hidden">
+            <h3>please Add Some Pizza</h3>
+          </div>
+          <!-- <div class="cart__body">
+            <div class="cart__body-img">
+              <img src="./img/pizza-1.jpg" alt="pizza" />
+            </div>
+            <div class="cart__body-text cart__body-text-header">
+              <h3 class="cart__body-text-heading">Sameer</h3>
+
+              <div class="cart__body-text-subheading">
+                <p>size</p>
+                <p>Toppings</p>
+                <p>price</p>
+              </div>
+
+              <div class="cart__body-text-order">
+                <p>size</p>
+                <p>Toppings</p>
+                <p>price</p>
+              </div>
+
+              <div class="cart__body-text-total">
+                <h4>total : rs <span>499</span></h4>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+      <div class="cart__footer">
+        <p class="cart__footer-total">Total: Rs <span>299</span></p>
+
+        <button class="cart__footer-button">Checkout</button>
+      </div>
+    </main>
+    <footer>build by Sameer</footer>
+
+    <script src="cart.js"></script>
+  </body>
+</html>

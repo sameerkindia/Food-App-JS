@@ -1,0 +1,46 @@
+:root {
+  // --color-primary: #8b4513;
+  // --color-secondary: #ffa500;
+  --color-primary: #ffba00;
+  --color-primary-dark: #cc9500;
+  --color-tertry: #bb8a52;
+  --color-secondary: #0c3b2e;
+  --color-accent-1: #6d9773;
+  --color-accent-2: #228b22;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+
+  @media (max-width: 900px) {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.high {
+  background-color: var(--color-accent-1);
+}
+.low {
+  background-color: var(--color-accent-2);
+}
+
+/*
+cart[id].price.push(price);
+      cart[id].size.push(size);
+      cart[id].topping.push(topping);
+*/

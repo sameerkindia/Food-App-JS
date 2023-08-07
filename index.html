@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Food App</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <nav class="header__nav">
+          <a href="#" class="header__nav--logo header__nav--link"
+            ><i class="fa-solid fa-pizza-slice"></i><span>Only pizza</span></a
+          >
+          <a href="cart.html" class="header__nav--link header__nav--link-cart"
+            ><span class="header__logo">0</span
+            ><i class="fa-solid fa-cart-shopping"></i
+          ></a>
+        </nav>
+      </div>
+    </header>
+    <main class="container main-container">
+      <div class="option">
+        <div class="option__select-box">
+          <label for="select">Sort By:</label>
+          <select name="option" class="sort__pizza" id="select">
+            <option value="all">-- Select to sort --</option>
+            <option value="price-high">Price: high to low</option>
+            <option value="price-low">Price: low to high</option>
+            <option value="name-a">Name: A to Z</option>
+            <option value="name-z">Name: Z to A</option>
+            <option value="raiting-high">Raiting: High to Low</option>
+            <option value="raiting-low">Raiting: Low to High</option>
+          </select>
+        </div>
+        <div class="option__sort">
+          <a href="#" class="option__sort--link">All</a>
+          <a href="#" class="option__sort--link">Veg</a>
+          <a href="#" class="option__sort--link">Non Veg</a>
+        </div>
+      </div>
+
+      <div class="content"></div>
+    </main>
+    <footer>build by Sameer</footer>
+
+    <div class="overlay hidden"></div>
+    <div class="popup hidden">
+      <div class="popup__top">
+        <h3 class="popup__heading">Margherita</h3>
+        <button class="popup__close-button">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="popup__main">
+        <div class="popup__size">
+          <h3 class="popup__size-heading">choose size</h3>
+          <div class="popup__size-option">
+            <div class="popup__size-option-input">
+              <input
+                type="radio"
+                name="size"
+                class="radio-input"
+                value="regular"
+                id="regular"
+              />
+              <label for="regular">Regular</label>
+            </div>
+
+            <div class="popup__size-option-input">
+              <input
+                type="radio"
+                name="size"
+                class="radio-input"
+                value="medium"
+                id="medium"
+              />
+              <label for="medium">Medium</label>
+            </div>
+
+            <div class="popup__size-option-input">
+              <input
+                type="radio"
+                name="size"
+                class="radio-input"
+                value="large"
+                id="large"
+              />
+              <label for="large">Large</label>
+            </div>
+          </div>
+        </div>
+        <div class="popup__toppings">
+          <h3 class="popup__size-heading">choose topping(s)</h3>
+          <div class="popup__toppings-option">
+            <div class="popup__toppings-option-input">
+              <input
+                type="checkbox"
+                name="topping"
+                class="checkbox-input"
+                id="red-pepper"
+                value="Red Pepper"
+              />
+              <label for="red-pepper">Red Pepper </label>
+            </div>
+            <div class="popup__toppings-option-input">
+              <input
+                type="checkbox"
+                name="topping"
+                class="checkbox-input"
+                id="onion"
+                value="Onion"
+              />
+              <label for="onion">Onion </label>
+            </div>
+            <div class="popup__toppings-option-input">
+              <input
+                type="checkbox"
+                name="topping"
+                class="checkbox-input"
+                id="grilled-mushroom"
+                value="Grilled Mushroom"
+              />
+              <label for="grilled-mushroom">Grilled Mushroom </label>
+            </div>
+            <div class="popup__toppings-option-input">
+              <input
+                type="checkbox"
+                name="topping"
+                class="checkbox-input"
+                id="extra-cheese"
+                value="Extra Cheese"
+              />
+              <label for="extra-cheese">Extra Cheese</label>
+            </div>
+            <div class="popup__toppings-option-input">
+              <input
+                type="checkbox"
+                name="topping"
+                class="checkbox-input"
+                id="black-olive"
+                value="Black Olive"
+              />
+              <label for="black-olive">Black Olive</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="popup__button">Add to cart</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
