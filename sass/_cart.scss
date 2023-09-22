@@ -21,7 +21,8 @@
     &-img {
       display: inline-block;
       width: 25%;
-      // height: auto;
+      height: 20rem;
+      overflow: hidden;
       margin-right: 2rem;
 
       & img {

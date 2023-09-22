@@ -88,7 +88,8 @@ cart[id].price.push(price);
   padding-bottom: 2rem;
   border-radius: 5px;
   overflow: hidden;
-  transition: all 0.3s; }
+  transition: all 0.3s;
+  height: 40rem; }
   .food__card:hover {
     box-shadow: 2px 2px 1.5rem rgba(0, 0, 0, 0.3);
     transform: scale(1.02); }
@@ -314,6 +315,8 @@ footer {
   .cart__body-img {
     display: inline-block;
     width: 25%;
+    height: 20rem;
+    overflow: hidden;
     margin-right: 2rem; }
     .cart__body-img img {
       width: 100%; }

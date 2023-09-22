@@ -3,15 +3,12 @@ const totalPrice = document.querySelector(".cart__footer-total span");
 
 const cart = JSON.parse(localStorage.getItem("cartItem"));
 
-console.log(cart);
-
 let priceArr = [];
 let price = 0;
 
 const renderCartMarkup = function (data) {
   const allOrders = data.details
     .map((i) => {
-      // priceArr.push(i.price);
       price += i.price;
       return `
     <div class="cart__body-text-order">

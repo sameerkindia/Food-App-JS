@@ -1,4 +1,4 @@
-const api = `https://run.mocky.io/v3/ec196a02-aaf4-4c91-8f54-21e72f241b68`;
+import { pizzaData } from "./data.js";
 
 const contentBox = document.querySelector(".content");
 const sortLink = document.querySelectorAll(".option__sort--link");
@@ -31,7 +31,6 @@ const orderLengthFunc = function (data) {
     orderId.push(i[1].id);
     if (orderLength > 0) cartLogo.classList.remove("hidden");
 
-    console.log(orderLength);
     cartLogo.textContent = orderLength;
   });
   orderLength = 0;
@@ -117,21 +116,21 @@ const renderPizzaMarkup = function (data) {
 // FOR POPUP MARKUP
 
 const renderPopup = function (data) {
-  const radioMarkup = data.size[0].items
+  const radioMarkup = data.size
     .map((i) => {
       return `
       <label class="popup__size-option-input">
-              <input type="radio" name="size" value="${i.size}" />
-              <span>${i.size}</span>
+              <input type="radio" name="size" value="${i}" />
+              <span>${i}</span>
             </label>`;
     })
     .join("");
 
-  const checkboxMarkup = data.toppings[0].items
+  const checkboxMarkup = data.toppings
     .map((i) => {
       return `  <label class="popup__toppings-option-input">
-    <input type="checkbox" name="topping" value="${i.name}" />
-    <span>${i.name}</span>
+    <input type="checkbox" name="topping" value="${i}" />
+    <span>${i}</span>
   </label>  `;
     })
     .join("");
@@ -145,13 +144,13 @@ const renderPopup = function (data) {
       </div>
       <div class="popup__main">
         <div class="popup__size">
-          <h3 class="popup__size-heading">${data.size[0].title}</h3>
+          <h3 class="popup__size-heading">Size</h3>
           <div class="popup__size-option">
             ${radioMarkup} 
           </div>
         </div>
         <div class="popup__toppings">
-          <h3 class="popup__size-heading">${data.toppings[0].title}</h3>
+          <h3 class="popup__size-heading">Toppings</h3>
           <div class="popup__toppings-option">    
           ${checkboxMarkup}    
           </div>
@@ -176,13 +175,16 @@ const sortByLink = function (data) {
     if (target == "All") {
       renderPizzaMarkup(data);
       sortingPizza(data);
+      buttonAndPopup(data);
     }
     if (target == "Veg") {
       const veg = data.filter((e) => {
         return e.isVeg;
       });
+
       renderPizzaMarkup(veg);
       sortingPizza(veg);
+      buttonAndPopup(data);
     }
     if (target == "Non Veg") {
       const nonVeg = data.filter((e) => {
@@ -190,6 +192,7 @@ const sortByLink = function (data) {
       });
       renderPizzaMarkup(nonVeg);
       sortingPizza(nonVeg);
+      buttonAndPopup(data);
     }
   });
 };
@@ -206,32 +209,38 @@ const sortingPizza = function (data) {
     switch (sortValue) {
       case "all":
         renderPizzaMarkup(data);
-
+        buttonAndPopup(data);
         break;
       case "price-high":
         sortedData = clone.sort((a, b) => b.price - a.price);
         renderPizzaMarkup(sortedData);
+        buttonAndPopup(data);
         break;
       case "price-low":
         sortedData = clone.sort((a, b) => a.price - b.price);
         renderPizzaMarkup(sortedData);
+        buttonAndPopup(data);
         break;
       case "raiting-high":
         sortedData = clone.sort((a, b) => b.rating - a.rating);
         renderPizzaMarkup(sortedData);
+        buttonAndPopup(data);
         break;
       case "raiting-low":
         sortedData = clone.sort((a, b) => a.rating - b.rating);
         renderPizzaMarkup(sortedData);
+        buttonAndPopup(data);
         break;
       case "name-a":
         sortedData = clone.sort((a, b) => a.name.localeCompare(b.name));
 
         renderPizzaMarkup(sortedData);
+        buttonAndPopup(data);
         break;
       case "name-z":
         sortedData = clone.sort((a, b) => b.name.localeCompare(a.name));
         renderPizzaMarkup(sortedData);
+        buttonAndPopup(data);
         break;
     }
   });
@@ -240,7 +249,7 @@ const sortingPizza = function (data) {
 ////////////////////////////////////////////////////
 // BUTTON AND POPUP
 
-const buttonAndPopup = function (data) {
+function buttonAndPopup(data) {
   const pizzaRemoveBtn = document.querySelectorAll(".food__box-btn-remove");
   const pizzaAddBtn = document.querySelectorAll(".food__box-btn-add");
   const foodBoxCount = document.querySelectorAll(".food__box-count");
@@ -272,10 +281,11 @@ const buttonAndPopup = function (data) {
     });
   });
 
-  // addRemoveBtn(cart);
   contentBox.addEventListener("click", (e) => {
     const target = e.target;
     const targetFood = target.closest(".food__card");
+    if (!targetFood) return;
+
     const popupItem = data.find((pizza) => pizza.id == targetFood.id);
 
     renderPopup(popupItem);
@@ -348,16 +358,14 @@ const buttonAndPopup = function (data) {
       topping = [];
     });
   });
-};
-console.log(cart);
+}
 
 ///////////////////////////////////////////////////
 // FOR API CALL & RENDER PIZZA
 
-async function showApi() {
+function showPizza() {
   try {
-    const response = await fetch(api);
-    const data = await response.json();
+    const data = pizzaData;
 
     renderPizzaMarkup(data);
 
@@ -378,10 +386,4 @@ overlay.addEventListener("click", () => {
   hide();
 });
 
-// console.log(JSON.parse(localStorage.getItem("cartItem")));
-
-// window.addEventListener("unload", () => {
-//   localStorage.removeItem("cartItem");
-// });
-
-showApi();
+showPizza();
